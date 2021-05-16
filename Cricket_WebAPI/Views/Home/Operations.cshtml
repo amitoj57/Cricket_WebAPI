@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 myheading">Player Rating Information</h1>
+</div>
+<hr />
+<button class="btn btn-outline-warning myheading" data-toggle="modal" data-target="#add">Add New Rating</button>
+<hr />
+<!-- Table For Display Circket Rating-->
+<div id="table_details">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Country Name</th>
+                <th>Player Name</th>
+                <th>Points</th>
+                <th colspan="2" align="center">Action</th>
+            </tr>
+        </thead>
+        <tbody id="table_rating">
+            <tr>
+                <td colspan="5" align="center">No Rating information</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Add Modal Dialog Box -->
+<div class="modal" tabindex="-1" role="dialog" id="add">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title myheading">Add Player Rating</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="country">Choose Country Name: </label>
+                        <select id="country" class="form-control">
+                            <option value="Australia">Australia</option>
+                            <option value="India">India</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="England">England</option>
+                            <option value="South Africa">South Africa</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="playername">Enter Player Name: </label>
+                        <input type="text" class="form-control" id="playername">
+                    </div>
+                    <div class="form-group">
+                        <label for="points">Enter Points: </label>
+                        <input type="number" class="form-control" id="points">
+                    </div>
+                    <div class="form-group" id="result">
+
+                    </div>
+                    <button type="button" onclick="addRating()" class="btn btn-primary">Add New Rating</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal Box -->
+<div class="modal" tabindex="-1" role="dialog" id="update">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Rating Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <div class="form-group">
+
+                        <input type="hidden" class="form-control" id="id">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="country1">Choose Country Name: </label>
+                        <select id="country1" class="form-control">
+                            <option value="Australia">Australia</option>
+                            <option value="India">India</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="England">England</option>
+                            <option value="South Africa">South Africa</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="playername1">Enter Player Name: </label>
+                        <input type="text" class="form-control" id="playername1">
+                    </div>
+                    <div class="form-group">
+                        <label for="points">Enter Points: </label>
+                        <input type="number" class="form-control" id="points1">
+                    </div>
+
+                    <div class="form-group" id="resultUpdate">
+
+
+                    </div>
+                    <button type="button" onclick="updateRating()" class="btn btn-primary">Update Rating Details</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal Dialog Ends -->
+
+@section Scripts{
+    <script src="~/js/site.js"></script>
+    <script>
+        $(document).ready(function () {
+            loadRatings();
+        });
+    </script>
+}

@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 myheading">Player Rating Information</h1>
+</div>
+<!-- Table For Display Circket Rating-->
+<div id="table_details">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Country Name</th>
+                <th>Player Name</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody id="table_rating">
+            <tr>
+                <td colspan="3" align="center">No Rating information</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/home.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            loadRatings();
+        });
+    </script>
+}
